@@ -1,0 +1,26 @@
+# ARCHIVO DE SÍNTESIS
+
+# Read design
+read_verilog FIFO.v
+hierarchy -check -top FIFO
+
+# The high-level stuff
+proc; opt; fsm; opt; memory; opt
+
+# Mapping to internal cell library
+techmap; opt
+
+# Mapping flip-flop to mycells.lib
+dfflibmap -liberty cmos_cells.lib
+
+# Mapping logic to mycells.lib
+abc -liberty cmos_cells.lib
+
+# Despliega Diagrama de bloques
+# show -prefix FIFO -lib cmos_cells.v
+
+# Cleaning
+clean
+
+# Write synthesized design
+write_verilog FIFO_estruct.v
