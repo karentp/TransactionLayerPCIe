@@ -13,6 +13,7 @@ module FIFO (
 reg [2:0] wr_ptr, rd_ptr;
 reg we_a, re_a;
 reg [2:0] contador;
+reg full, empty;
 
 true_dpram_sclk memory (
                 .data_a(data_in),
@@ -30,18 +31,32 @@ always@(posedge clk)begin
         wr_ptr <= 3'b0;
         rd_ptr <= 3'b0;
         contador <= 3'b0;
+        full <= 0;
+        empty <= 0;
     end
     else begin
         //  Lógica para hacer push
-        if((push == 1) & (contador < 3'b111))begin
+        if((push == 1) & (contador <= 3'b111) & (full==0))begin
             wr_ptr <= wr_ptr + 1; 
             contador <= contador + 1;
+            empty <=0;
+
+            if(contador == 3'b111)begin
+                full <= 1;
+                contador <= 3'b111;
+            end
         end
 
         // Lógica para hacer pop
-        if((pop == 1) & (contador > 3'b000))begin
+        if((pop == 1) & (contador >= 3'b000) & (empty==0))begin
             rd_ptr <= rd_ptr + 1; 
             contador <= contador - 1;
+            full <= 0;
+            
+            if(contador == 3'b000)begin
+                empty <= 1;
+                contador <= 3'b000;
+            end
         end
     end
 end
@@ -79,13 +94,13 @@ always@(*)begin
     end
     else begin
         // Lógica de casi lleno y casi vacío
-        if(contador >= 3'b101)begin
+        if(contador >= 3'b110)begin
             almost_full = 1;
         end
         else begin
             almost_full = 0;
         end
-        if(contador <= 3'b010)begin
+        if(contador <= 3'b001)begin
             almost_empty = 1;
         end
         else begin

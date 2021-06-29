@@ -1,0 +1,43 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Tue Jun 29 03:43:12 2021
+[*]
+[dumpfile] "/mnt/c/Users/felip/Documents/1s2021/DigitalesII/Proyecto/TransactionLayerPCIe/contador.vcd"
+[dumpfile_mtime] "Tue Jun 29 03:36:56 2021"
+[dumpfile_size] 128900
+[savefile] "/mnt/c/Users/felip/Documents/1s2021/DigitalesII/Proyecto/TransactionLayerPCIe/FIFO.gtkw"
+[timestart] 0
+[size] 1366 745
+[pos] -35 -35
+*-14.893443 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 192
+[signals_width] 156
+[sst_expanded] 1
+[sst_vpaned_height] 209
+@29
+[color] 1
+BancoPruebas.clk
+@28
+BancoPruebas.reset
+@22
+BancoPruebas.data_in[9:0]
+@28
+[color] 3
+BancoPruebas.pop
+[color] 3
+BancoPruebas.push
+[color] 5
+BancoPruebas.almost_empty_conduct
+[color] 5
+BancoPruebas.almost_empty_estruct
+[color] 6
+BancoPruebas.almost_full_conduct
+[color] 6
+BancoPruebas.almost_full_estruct
+@22
+[color] 7
+BancoPruebas.data_out_conduct[9:0]
+[color] 7
+BancoPruebas.data_out_estruct[9:0]
+[pattern_trace] 1
+[pattern_trace] 0
