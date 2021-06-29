@@ -11,7 +11,8 @@ module true_dpram_sclk
 	// input we_b, 
     input re_a,                     // Añadido
 	input clk,
-	output reg [7:0] q_a 
+    input reset,
+	output reg [9:0] q_a 
 	// output reg [7:0] q_b
 );
 
@@ -21,15 +22,23 @@ module true_dpram_sclk
 	// Port A
 	always @ (posedge clk)
 	begin
+    if(reset == 0)begin         // Añadido
+        q_a <= 0;
+    end
+    else begin
 		if (we_a) 
 		begin
 			ram[addr_wa] <= data_a;
 			// q_a <= data_a;
 		end
-		else if (re_a)          //Añadido
+		if (re_a)          //Añadido
 		begin
 			q_a <= ram[addr_ra];
 		end
+        else begin
+            q_a <= 10'b0;
+        end
+        end
 	end
 	
 	// Port B
