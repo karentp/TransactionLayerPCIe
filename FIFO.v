@@ -2,7 +2,7 @@
 
 module FIFO (
     input clk,
-    input state,                            // Estado proveniente de la SM
+    input [3:0] state,                            // Estado proveniente de la SM
     input push,
     input pop,
     input [9:0] data_in,
@@ -30,7 +30,8 @@ true_dpram_sclk memory (
 );
 
 always@(posedge clk)begin
-    if(state == 0)begin
+    // Estado de RESET = 0001
+    if(state == 4'b0001)begin
         wr_ptr <= 3'b0;
         rd_ptr <= 3'b0;
         contador <= 3'b0;
@@ -65,7 +66,8 @@ always@(posedge clk)begin
 end
 
 always@(*)begin
-    if(state == 0)begin
+    // Estado de RESET = 0001
+    if(state == 4'b0001)begin
         we_a <= 0;
         re_a <= 0;
     end
@@ -91,13 +93,19 @@ end
 
 always@(*)begin
 
-    if(state==0)begin
+    // Estado de RESET = 0001
+    if(state==4'b0001)begin
         almost_full = 0;
         almost_empty = 0;
-        low_space = umbral_superior;
-        much_space = umbral_inferior;
     end
     else begin
+
+        // Estado de INIT = 0010
+        if(state == 4'b0010)begin
+            low_space = umbral_superior;
+            much_space = umbral_inferior;
+        end
+
         // Lógica de casi lleno y casi vacío
         if(contador >= low_space)begin
             almost_full = 1;

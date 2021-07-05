@@ -19,7 +19,7 @@ module true_dpram_sclk
 	// input we_b, 
     input re_a,                         // Añadido
 	input clk,
-    input state,
+    input [3:0] state,
 	output reg [9:0] q_a 
 	// output reg [7:0] q_b
 );
@@ -28,9 +28,9 @@ module true_dpram_sclk
 	reg [9:0] ram[7:0];
 	
 	// Port A
-	always @ (posedge clk)
-	begin
-    if(state == 0)begin                  // Añadido
+	always @ (posedge clk)begin
+	// Estado de RESET = 0001
+    if(state == 4'b0001)begin                  // Añadido
         q_a <= 0;
     end
     else begin
@@ -46,7 +46,7 @@ module true_dpram_sclk
         else begin
             q_a <= 10'b0;               // Añadido
         end
-        end
+    end
 	end
 	
 	// Port B

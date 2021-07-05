@@ -1,23 +1,23 @@
 `timescale 	1ns				/ 100ps
 `include "FIFO.v"
-`include "Probador.v"
+`include "Probador_FIFO.v"
 `include "cmos_cells.v"
 `include "FIFO_estruct.v"
 
 
-module BancoPruebas; // Testbench
+module BancoPruebas_FIFO; // Testbench
 
     wire almost_empty_conduct, almost_empty_estruct, almost_full_estruct;	
     wire [9:0] data_out_conduct, data_out_estruct;	
     /*AUTOWIRE*/
     // Beginning of automatic wires (for undeclared instantiated-module outputs)
-    wire		clk;			// From prob of Probador.v
-    wire [9:0]		data_in;		// From prob of Probador.v
-    wire		pop;			// From prob of Probador.v
-    wire		push;			// From prob of Probador.v
-    wire		state;			// From prob of Probador.v
-    wire [2:0]		umbral_inferior;	// From prob of Probador.v
-    wire [2:0]		umbral_superior;	// From prob of Probador.v
+    wire		clk;			// From prob of Probador_FIFO.v
+    wire [9:0]		data_in;		// From prob of Probador_FIFO.v
+    wire		pop;			// From prob of Probador_FIFO.v
+    wire		push;			// From prob of Probador_FIFO.v
+    wire [3:0]		state;			// From prob of Probador_FIFO.v
+    wire [2:0]		umbral_inferior;	// From prob of Probador_FIFO.v
+    wire [2:0]		umbral_superior;	// From prob of Probador_FIFO.v
     // End of automatics
 
 
@@ -29,14 +29,14 @@ module BancoPruebas; // Testbench
         /*AUTOINST*/
 		     // Inputs
 		     .clk		(clk),
-		     .state		(state),
+		     .state		(state[3:0]),
 		     .push		(push),
 		     .pop		(pop),
 		     .data_in		(data_in[9:0]),
 		     .umbral_superior	(umbral_superior[2:0]),
 		     .umbral_inferior	(umbral_inferior[2:0]));
 
-	Probador prob (
+	Probador_FIFO prob (
             .data_out_conduct(data_out_conduct),
             .data_out_estruct(data_out_estruct),
             .almost_empty_conduct(almost_empty_conduct),
@@ -44,14 +44,14 @@ module BancoPruebas; // Testbench
             .almost_empty_estruct(almost_empty_estruct),
             .almost_full_estruct(almost_full_estruct),
         /*AUTOINST*/
-		       // Outputs
-		       .clk		(clk),
-		       .state		(state),
-		       .push		(push),
-		       .pop		(pop),
-		       .data_in		(data_in[9:0]),
-		       .umbral_superior	(umbral_superior[2:0]),
-		       .umbral_inferior	(umbral_inferior[2:0]));
+			    // Outputs
+			    .clk		(clk),
+			    .state		(state[3:0]),
+			    .push		(push),
+			    .pop		(pop),
+			    .data_in		(data_in[9:0]),
+			    .umbral_superior	(umbral_superior[2:0]),
+			    .umbral_inferior	(umbral_inferior[2:0]));
 
     FIFO_estruct estructural (
             .data_out(data_out_estruct),
@@ -63,7 +63,7 @@ module BancoPruebas; // Testbench
 			      .data_in		(data_in[9:0]),
 			      .pop		(pop),
 			      .push		(push),
-			      .state		(state),
+			      .state		(state[3:0]),
 			      .umbral_inferior	(umbral_inferior[2:0]),
 			      .umbral_superior	(umbral_superior[2:0]));
     

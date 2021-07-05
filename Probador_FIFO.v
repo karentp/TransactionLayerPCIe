@@ -1,8 +1,8 @@
 `timescale 1ns/1ns
 
-module Probador(
+module Probador_FIFO(
     output reg clk,
-    output reg state,
+    output reg [3:0] state,
     output reg push,
     output reg pop,
     output reg [9:0] data_in,
@@ -24,36 +24,14 @@ initial begin
         pop<=0;
         umbral_inferior <= 3'b001;
         umbral_superior <= 3'b110;
-        state <= 0;
+        state <= 4'b0001;
         @(posedge clk)
         @(posedge clk)
-        state<=1;
+        state<=4'b0010;
         data_in<=10'b0000000001;
         @(posedge clk)
         push<=1;
         pop<=0;
-
-        // @(posedge clk)
-        // data_in <= data_in + 1;
-        // @(posedge clk)
-        // data_in <= data_in + 1;
-        // @(posedge clk)
-        // @(posedge clk)
-
-        // push<=0;
-        // pop<=1;
-
-        // @(posedge clk)
-        // data_in <= data_in + 1;
-        // @(posedge clk)
-        // data_in <= data_in + 1;
-        // @(posedge clk)
-        // @(posedge clk)
-        // push<=0;
-        // pop<=0;
-        // @(posedge clk)
-        // @(posedge clk)
-
 
         repeat(9)begin
         @(posedge clk)
