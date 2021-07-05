@@ -1,10 +1,11 @@
 module arbitro(
+    input clk,
     input almost_full,
     input reset_L,
     input almost_empty,
     input push_probador_naranja,
     output push,
-    output pop
+    output reg pop
 );
 //reg [2:0] analisis_tamaño;
 reg [1:0] FIFO_actual; //fifo 00 fifo 01 fifo 10 fifo 11
@@ -12,11 +13,13 @@ reg [2:0] contador0;//contar hasta 8
 reg [2:0] contador1;//contar hasta 8
 reg [2:0] contador2;//contar hasta 8
 reg [2:0] contador3;//contar hasta 8
+reg empty;
 
 //Lógica de prioridades
 
 always@(posedge clk)begin
     if(reset_L)begin
+        empty<=0;
         FIFO_actual<=2'b00;
         contador0<=3'b000;
         contador1<=3'b000;
@@ -116,3 +119,4 @@ always@(posedge clk)begin
     end
 end
 
+endmodule
