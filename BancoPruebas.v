@@ -15,7 +15,9 @@ module BancoPruebas; // Testbench
     wire [9:0]		data_in;		// From prob of Probador.v
     wire		pop;			// From prob of Probador.v
     wire		push;			// From prob of Probador.v
-    wire		reset;			// From prob of Probador.v
+    wire		state;			// From prob of Probador.v
+    wire [2:0]		umbral_inferior;	// From prob of Probador.v
+    wire [2:0]		umbral_superior;	// From prob of Probador.v
     // End of automatics
 
 
@@ -27,10 +29,12 @@ module BancoPruebas; // Testbench
         /*AUTOINST*/
 		     // Inputs
 		     .clk		(clk),
-		     .reset		(reset),
+		     .state		(state),
 		     .push		(push),
 		     .pop		(pop),
-		     .data_in		(data_in[9:0]));
+		     .data_in		(data_in[9:0]),
+		     .umbral_superior	(umbral_superior[2:0]),
+		     .umbral_inferior	(umbral_inferior[2:0]));
 
 	Probador prob (
             .data_out_conduct(data_out_conduct),
@@ -42,10 +46,12 @@ module BancoPruebas; // Testbench
         /*AUTOINST*/
 		       // Outputs
 		       .clk		(clk),
-		       .reset		(reset),
+		       .state		(state),
 		       .push		(push),
 		       .pop		(pop),
-		       .data_in		(data_in[9:0]));
+		       .data_in		(data_in[9:0]),
+		       .umbral_superior	(umbral_superior[2:0]),
+		       .umbral_inferior	(umbral_inferior[2:0]));
 
     FIFO_estruct estructural (
             .data_out(data_out_estruct),
@@ -57,7 +63,9 @@ module BancoPruebas; // Testbench
 			      .data_in		(data_in[9:0]),
 			      .pop		(pop),
 			      .push		(push),
-			      .reset		(reset));
+			      .state		(state),
+			      .umbral_inferior	(umbral_inferior[2:0]),
+			      .umbral_superior	(umbral_superior[2:0]));
     
 endmodule
 // Local Variable:

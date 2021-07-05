@@ -15,5 +15,5 @@ execute: BancoPruebas.v
 sim: BancoPruebas.vvp
 	vvp BancoPruebas.vvp
 	
-gtkwave: contador.vcd
-	gtkwave contador.vcd
+gtkwave: FIFO.vcd
+	gtkwave FIFO.vcd
