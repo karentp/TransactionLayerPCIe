@@ -1,0 +1,70 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Tue Jul 06 04:27:10 2021
+[*]
+[dumpfile] "C:\Users\Usuario\Desktop\TransactionLayerPCIe-Felipe\Arbitro.vcd"
+[dumpfile_mtime] "Tue Jul 06 04:21:33 2021"
+[dumpfile_size] 9427
+[savefile] "C:\Users\Usuario\Desktop\TransactionLayerPCIe-Felipe\arbitro.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*-4.923578 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 211
+[signals_width] 142
+[sst_expanded] 1
+[sst_vpaned_height] 154
+@28
+BancoPruebas_arbitro.clk
+@22
+BancoPruebas_arbitro.state[3:0]
+@200
+-entradas
+@28
+[color] 5
+BancoPruebas_arbitro.almost_full0
+[color] 5
+BancoPruebas_arbitro.almost_full1
+[color] 5
+BancoPruebas_arbitro.almost_full2
+[color] 5
+BancoPruebas_arbitro.almost_full3
+[color] 2
+BancoPruebas_arbitro.empty0_naranja
+[color] 2
+BancoPruebas_arbitro.empty1_naranja
+[color] 2
+BancoPruebas_arbitro.empty2_naranja
+[color] 2
+BancoPruebas_arbitro.empty3_naranja
+@200
+-salidas
+@28
+[color] 3
+BancoPruebas_arbitro.pop0
+[color] 3
+BancoPruebas_arbitro.pop0_estruct
+[color] 3
+BancoPruebas_arbitro.pop1
+[color] 3
+BancoPruebas_arbitro.pop1_estruct
+[color] 3
+BancoPruebas_arbitro.pop2
+[color] 3
+BancoPruebas_arbitro.pop2_estruct
+[color] 3
+BancoPruebas_arbitro.pop3
+[color] 3
+BancoPruebas_arbitro.pop3_estruct
+@29
+BancoPruebas_arbitro.push0
+@28
+BancoPruebas_arbitro.push0_estruct
+BancoPruebas_arbitro.push1
+BancoPruebas_arbitro.push1_estruct
+BancoPruebas_arbitro.push2
+BancoPruebas_arbitro.push2_estruct
+BancoPruebas_arbitro.push3
+BancoPruebas_arbitro.push3_estruct
+[pattern_trace] 1
+[pattern_trace] 0
