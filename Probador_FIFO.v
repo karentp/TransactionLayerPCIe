@@ -10,8 +10,9 @@ module Probador_FIFO(
     output reg [2:0] umbral_inferior,            // Umbral de almost empty
     input [9:0] data_out_conduct,
     input [9:0] data_out_estruct,
-    input almost_full_conduct, almost_empty_conduct,
-    input almost_full_estruct, almost_empty_estruct
+    input almost_full_conduct,
+    input almost_full_estruct,
+    input empty_conduct, empty_estruct
 );
 
 initial clk=0;

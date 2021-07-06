@@ -7,7 +7,7 @@
 
 module BancoPruebas_FIFO; // Testbench
 
-    wire almost_empty_conduct, almost_empty_estruct, almost_full_estruct;	
+    wire empty_conduct, empty_estruct, almost_full_estruct, almost_full_conduct;	
     wire [9:0] data_out_conduct, data_out_estruct;	
     /*AUTOWIRE*/
     // Beginning of automatic wires (for undeclared instantiated-module outputs)
@@ -24,7 +24,7 @@ module BancoPruebas_FIFO; // Testbench
 
     FIFO conductual (
             .data_out(data_out_conduct),
-            .almost_empty(almost_empty_conduct),
+            .empty(empty_conduct),
             .almost_full(almost_full_conduct),
         /*AUTOINST*/
 		     // Inputs
@@ -39,9 +39,9 @@ module BancoPruebas_FIFO; // Testbench
 	Probador_FIFO prob (
             .data_out_conduct(data_out_conduct),
             .data_out_estruct(data_out_estruct),
-            .almost_empty_conduct(almost_empty_conduct),
+            .empty_conduct(empty_conduct),
             .almost_full_conduct(almost_full_conduct),
-            .almost_empty_estruct(almost_empty_estruct),
+            .empty_estruct(empty_estruct),
             .almost_full_estruct(almost_full_estruct),
         /*AUTOINST*/
 			    // Outputs
@@ -55,7 +55,7 @@ module BancoPruebas_FIFO; // Testbench
 
     FIFO_estruct estructural (
             .data_out(data_out_estruct),
-            .almost_empty(almost_empty_estruct),
+            .empty(empty_estruct),
             .almost_full(almost_full_estruct),
         /*AUTOINST*/
 			      // Inputs

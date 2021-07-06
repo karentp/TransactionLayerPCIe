@@ -9,14 +9,15 @@ module FIFO (
     input [2:0] umbral_superior,            // Umbral de almost full
     input [2:0] umbral_inferior,            // Umbral de almost empty
     output [9:0] data_out,
-    output reg almost_full, almost_empty
+    output reg almost_full,
+    output reg empty
 );
 
 reg [2:0] wr_ptr, rd_ptr;
 reg [2:0] low_space, much_space;
 reg we_a, re_a;
 reg [2:0] contador;
-reg full, empty;
+reg full, almost_empty;
 
 true_dpram_sclk memory (
                 .data_a(data_in),
