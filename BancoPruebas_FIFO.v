@@ -11,6 +11,7 @@ module BancoPruebas_FIFO; // Testbench
     wire [9:0] data_out_conduct, data_out_estruct;	
     /*AUTOWIRE*/
     // Beginning of automatic wires (for undeclared instantiated-module outputs)
+    wire		almost_empty;		// From conductual of FIFO.v, ...
     wire		clk;			// From prob of Probador_FIFO.v
     wire [9:0]		data_in;		// From prob of Probador_FIFO.v
     wire		pop;			// From prob of Probador_FIFO.v
@@ -27,6 +28,8 @@ module BancoPruebas_FIFO; // Testbench
             .empty(empty_conduct),
             .almost_full(almost_full_conduct),
         /*AUTOINST*/
+		     // Outputs
+		     .almost_empty	(almost_empty),
 		     // Inputs
 		     .clk		(clk),
 		     .state		(state[3:0]),
@@ -58,6 +61,8 @@ module BancoPruebas_FIFO; // Testbench
             .empty(empty_estruct),
             .almost_full(almost_full_estruct),
         /*AUTOINST*/
+			      // Outputs
+			      .almost_empty	(almost_empty),
 			      // Inputs
 			      .clk		(clk),
 			      .data_in		(data_in[9:0]),

@@ -32,6 +32,14 @@ module true_dpram_sclk
 	// Estado de RESET = 0001
     if(state == 4'b0001)begin                  // Añadido
         q_a <= 0;
+		ram[0] <= 0;
+		ram[1] <= 0;
+		ram[2] <= 0;
+		ram[3] <= 0;
+		ram[4] <= 0;
+		ram[5] <= 0;
+		ram[6] <= 0;
+		ram[7] <= 0;
     end
     else begin
 		if (we_a) 

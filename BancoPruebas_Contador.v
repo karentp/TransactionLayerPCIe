@@ -20,6 +20,7 @@ module BancoPruebas_Contador; // Testbench
     wire		almost_empty;		// From FIFO_0_c of FIFO.v, ...
     wire		almost_full;		// From FIFO_0_c of FIFO.v, ...
     wire		clk;			// From prob of Probador_Contador.v
+    wire		empty;			// From FIFO_0_c of FIFO.v, ...
     wire [1:0]		idx;			// From prob of Probador_Contador.v
     wire		pop;			// From prob of Probador_Contador.v
     wire		req;			// From prob of Probador_Contador.v
@@ -40,6 +41,7 @@ module BancoPruebas_Contador; // Testbench
 		   // Outputs
 		   .almost_full		(almost_full),
 		   .almost_empty	(almost_empty),
+		   .empty		(empty),
 		   // Inputs
 		   .clk			(clk),
 		   .state		(state[3:0]),
@@ -55,6 +57,7 @@ module BancoPruebas_Contador; // Testbench
 		   // Outputs
 		   .almost_full		(almost_full),
 		   .almost_empty	(almost_empty),
+		   .empty		(empty),
 		   // Inputs
 		   .clk			(clk),
 		   .state		(state[3:0]),
@@ -70,6 +73,7 @@ module BancoPruebas_Contador; // Testbench
 		   // Outputs
 		   .almost_full		(almost_full),
 		   .almost_empty	(almost_empty),
+		   .empty		(empty),
 		   // Inputs
 		   .clk			(clk),
 		   .state		(state[3:0]),
@@ -85,6 +89,7 @@ module BancoPruebas_Contador; // Testbench
 		   // Outputs
 		   .almost_full		(almost_full),
 		   .almost_empty	(almost_empty),
+		   .empty		(empty),
 		   // Inputs
 		   .clk			(clk),
 		   .state		(state[3:0]),
@@ -103,6 +108,7 @@ module BancoPruebas_Contador; // Testbench
 			   // Outputs
 			   .almost_empty	(almost_empty),
 			   .almost_full		(almost_full),
+			   .empty		(empty),
 			   // Inputs
 			   .clk			(clk),
 			   .pop			(pop),
@@ -118,6 +124,7 @@ module BancoPruebas_Contador; // Testbench
 			   // Outputs
 			   .almost_empty	(almost_empty),
 			   .almost_full		(almost_full),
+			   .empty		(empty),
 			   // Inputs
 			   .clk			(clk),
 			   .pop			(pop),
@@ -133,6 +140,7 @@ module BancoPruebas_Contador; // Testbench
 			   // Outputs
 			   .almost_empty	(almost_empty),
 			   .almost_full		(almost_full),
+			   .empty		(empty),
 			   // Inputs
 			   .clk			(clk),
 			   .pop			(pop),
@@ -148,6 +156,7 @@ module BancoPruebas_Contador; // Testbench
 			   // Outputs
 			   .almost_empty	(almost_empty),
 			   .almost_full		(almost_full),
+			   .empty		(empty),
 			   // Inputs
 			   .clk			(clk),
 			   .pop			(pop),

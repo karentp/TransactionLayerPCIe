@@ -10,14 +10,14 @@ module FIFO (
     input [2:0] umbral_inferior,            // Umbral de almost empty
     output [9:0] data_out,
     output reg almost_full,
-    output reg empty
+    output reg almost_empty, empty
 );
 
 reg [2:0] wr_ptr, rd_ptr;
 reg [2:0] low_space, much_space;
 reg we_a, re_a;
 reg [2:0] contador;
-reg full, almost_empty;
+reg full, empty_aux;
 
 true_dpram_sclk memory (
                 .data_a(data_in),
@@ -37,14 +37,16 @@ always@(posedge clk)begin
         rd_ptr <= 3'b0;
         contador <= 3'b0;
         full <= 0;
-        empty <= 0;
+        empty_aux <= 1;
+        empty <= 1;
     end
     else begin
         //  Lógica para hacer push
-        if((push == 1) & (contador <= 3'b111) & (full==0))begin
+        if((push == 1) & (full==0))begin
             wr_ptr <= wr_ptr + 1; 
             contador <= contador + 1;
-            empty <=0;
+            empty_aux <=0;
+            empty <= 0;
 
             if(contador == 3'b111)begin
                 full <= 1;
@@ -53,12 +55,13 @@ always@(posedge clk)begin
         end
 
         // Lógica para hacer pop
-        if((pop == 1) & (contador >= 3'b000) & (empty==0))begin
+        if((pop == 1)  & (empty_aux==0))begin
             rd_ptr <= rd_ptr + 1; 
             contador <= contador - 1;
             full <= 0;
             
             if(contador == 3'b000)begin
+                empty_aux <= 1;
                 empty <= 1;
                 contador <= 3'b000;
             end
@@ -71,23 +74,28 @@ always@(*)begin
     if(state == 4'b0001)begin
         we_a <= 0;
         re_a <= 0;
+        // empty = 1;
     end
     else begin
 
         //  Lógica para hacer push
-        if((push == 1) & (contador < 3'b111))begin
+        if((push == 1) & (full==0))begin
             we_a <= 1;
+            // empty = empty_aux;
         end
         else if(we_a <= 1)begin
             we_a <= 0;
+            // empty = empty_aux;
         end
 
         // Lógica para hacer pop
-        if((pop == 1) & (contador > 3'b000))begin
+        if((pop == 1) & (empty_aux==0))begin
             re_a <= 1;
+            // empty = empty_aux;
         end
         else if(re_a <= 1)begin
             re_a <= 0;
+            // empty = empty_aux;
         end
     end
 end
@@ -98,9 +106,10 @@ always@(*)begin
     if(state==4'b0001)begin
         almost_full = 0;
         almost_empty = 0;
+        
     end
     else begin
-
+        
         // Estado de INIT = 0010
         if(state == 4'b0010)begin
             low_space = umbral_superior;

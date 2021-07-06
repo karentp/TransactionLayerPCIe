@@ -8,7 +8,8 @@ module Probador_Contador(
     output reg pop,
     output reg [9:0] data_in_0, data_in_1, data_in_2, data_in_3,
     output reg [2:0] umbral_superior,            // Umbral de almost full
-    output reg [2:0] umbral_inferior,            // Umbral de almost empty
+    output reg [2:0] umbral_inferior,  
+    // input empty, almost_full,          // Umbral de almost empty
     // input [9:0] data_out_conduct,
     // input [9:0] data_out_estruct,
     // input almost_full_conduct, almost_empty_conduct,
@@ -38,7 +39,7 @@ initial begin
         umbral_inferior <= 3'b001;
         umbral_superior <= 3'b110;
         state <= 4'b0001;
-        @(posedge clk)
+        // @(posedge clk)
         @(posedge clk)
         state<=4'b0010;
         data_in_0<=10'b0000000001;
@@ -51,7 +52,7 @@ initial begin
         push_2<=1;
         push_3<=1;
         pop<=0;
-
+        // @(posedge clk)
 
         repeat(8) begin
             @(posedge clk)
@@ -60,14 +61,13 @@ initial begin
             data_in_2 <= data_in_2 + 1;
             data_in_3 <= data_in_3 + 1;
         end
-
         req<=1;
         push_0<=0;
         push_1<=0;
         push_2<=0;
         push_3<=0;
         pop<=1;
-        repeat(8)begin
+        repeat(9)begin
             @(posedge clk);
         end
 
@@ -76,12 +76,11 @@ initial begin
         push_2<=1;
         push_3<=1;
         pop<=0;
-        repeat(7)begin
+        repeat(8)begin
             @(posedge clk)
             data_in_2 <= data_in_2 + 1;
             data_in_3 <= data_in_3 + 1;
         end
-
         req<=0;
         push_0<=0;
         push_1<=0;
@@ -97,11 +96,10 @@ initial begin
         // push_2<=1;
         push_3<=1;
         pop<=0;
-        repeat(6)begin
+        repeat(8)begin
             @(posedge clk)
             data_in_3 <= data_in_3 + 1;
         end
-
         push_0<=0;
         push_1<=0;
         push_2<=0;

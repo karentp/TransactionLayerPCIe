@@ -1,43 +1,48 @@
 [*]
 [*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
-[*] Tue Jun 29 03:43:12 2021
+[*] Tue Jul  6 07:05:31 2021
 [*]
-[dumpfile] "/mnt/c/Users/felip/Documents/1s2021/DigitalesII/Proyecto/TransactionLayerPCIe/contador.vcd"
-[dumpfile_mtime] "Tue Jun 29 03:36:56 2021"
-[dumpfile_size] 128900
+[dumpfile] "/mnt/c/Users/felip/Documents/1s2021/DigitalesII/Proyecto/TransactionLayerPCIe/FIFO.vcd"
+[dumpfile_mtime] "Tue Jul  6 07:03:15 2021"
+[dumpfile_size] 135682
 [savefile] "/mnt/c/Users/felip/Documents/1s2021/DigitalesII/Proyecto/TransactionLayerPCIe/FIFO.gtkw"
 [timestart] 0
 [size] 1366 745
 [pos] -35 -35
-*-14.893443 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-14.969894 2 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [sst_width] 192
-[signals_width] 156
+[signals_width] 182
 [sst_expanded] 1
 [sst_vpaned_height] 209
-@29
+@28
 [color] 1
-BancoPruebas.clk
-@28
-BancoPruebas.reset
+BancoPruebas_FIFO.clk
 @22
-BancoPruebas.data_in[9:0]
+[color] 2
+BancoPruebas_FIFO.state[3:0]
+@28
+BancoPruebas_FIFO.umbral_inferior[2:0]
+BancoPruebas_FIFO.umbral_superior[2:0]
+@22
+BancoPruebas_FIFO.data_in[9:0]
 @28
 [color] 3
-BancoPruebas.pop
+BancoPruebas_FIFO.pop
 [color] 3
-BancoPruebas.push
-[color] 5
-BancoPruebas.almost_empty_conduct
-[color] 5
-BancoPruebas.almost_empty_estruct
-[color] 6
-BancoPruebas.almost_full_conduct
-[color] 6
-BancoPruebas.almost_full_estruct
+BancoPruebas_FIFO.push
 @22
 [color] 7
-BancoPruebas.data_out_conduct[9:0]
+BancoPruebas_FIFO.data_out_conduct[9:0]
 [color] 7
-BancoPruebas.data_out_estruct[9:0]
+BancoPruebas_FIFO.data_out_estruct[9:0]
+@28
+[color] 5
+BancoPruebas_FIFO.empty_conduct
+[color] 5
+BancoPruebas_FIFO.empty_estruct
+[color] 6
+BancoPruebas_FIFO.almost_full_estruct
+[color] 6
+BancoPruebas_FIFO.almost_full_conduct
 [pattern_trace] 1
 [pattern_trace] 0
