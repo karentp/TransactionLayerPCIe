@@ -33,6 +33,10 @@ arbitro arbitro_conductual (
           .empty1_naranja(empty1_naranja),
           .empty2_naranja(empty2_naranja),
           .empty3_naranja(empty3_naranja),
+          .empty0_morado(empty0_morado),
+          .empty1_morado(empty1_morado),
+          .empty2_morado(empty2_morado),
+          .empty3_morado(empty3_morado),
           .push0(push0),
           .push1(push1),
           .push2(push2),
@@ -46,11 +50,7 @@ arbitro arbitro_conductual (
 			    .empties		(empties[7:0]),
 			    // Inputs
 			    .clk		(clk),
-			    .state		(state[3:0]),
-			    .empty0_morado	(empty0_morado),
-			    .empty1_morado	(empty1_morado),
-			    .empty2_morado	(empty2_morado),
-			    .empty3_morado	(empty3_morado));
+			    .state		(state[3:0]));
 
 
 arbitro_estruct arbitro_estructural (
@@ -62,6 +62,10 @@ arbitro_estruct arbitro_estructural (
           .empty1_naranja(empty1_naranja),
           .empty2_naranja(empty2_naranja),
           .empty3_naranja(empty3_naranja),
+          .empty0_morado(empty0_morado),
+          .empty1_morado(empty1_morado),
+          .empty2_morado(empty2_morado),
+          .empty3_morado(empty3_morado),
           .push0(push0_estruct),
           .push1(push1_estruct),
           .push2(push2_estruct),
@@ -74,10 +78,6 @@ arbitro_estruct arbitro_estructural (
           /*AUTOINST*/
 				     // Inputs
 				     .clk		(clk),
-				     .empty0_morado	(empty0_morado),
-				     .empty1_morado	(empty1_morado),
-				     .empty2_morado	(empty2_morado),
-				     .empty3_morado	(empty3_morado),
 				     .state		(state[3:0]));
 
 
@@ -90,6 +90,10 @@ Probador_arbitro Probador(
           .empty1_naranja(empty1_naranja),
           .empty2_naranja(empty2_naranja),
           .empty3_naranja(empty3_naranja),
+          .empty0_morado(empty0_morado),
+          .empty1_morado(empty1_morado),
+          .empty2_morado(empty2_morado),
+          .empty3_morado(empty3_morado),
           .push0(push0),
           .push1(push1),
           .push2(push2),
@@ -102,10 +106,6 @@ Probador_arbitro Probador(
 			  // Outputs
 			  .clk			(clk),
 			  .state		(state[3:0]),
-			  .empty0_morado	(empty0_morado),
-			  .empty1_morado	(empty1_morado),
-			  .empty2_morado	(empty2_morado),
-			  .empty3_morado	(empty3_morado),
 			  // Inputs
 			  .empties		(empties[7:0]),
 			  .empties_estruct	(empties_estruct[7:0]));

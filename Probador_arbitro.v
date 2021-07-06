@@ -4,7 +4,7 @@ module Probador_arbitro(
     //FIFOS
     output reg clk,
     output reg [3:0] state,
-    output reg empty0_naranja, empty1_naranja, empty2_naranja, empty3_naranja, empty0_morado, empty1_morado, empty2_morado, empty3_morado,
+    output reg empty0_naranja, empty1_naranja, empty2_naranja, empty3_naranja, empty0_morado, empty1_morado, empty2_morado, empty3_morado, 
     output reg almost_full0, almost_full1,almost_full2, almost_full3,
     input [7:0] empties, empties_estruct,
     input push0,push1,push2,push3,
