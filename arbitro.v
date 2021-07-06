@@ -1,122 +1,142 @@
 module arbitro(
     input clk,
-    input almost_full,
-    input reset_L,
-    input almost_empty,
-    input push_probador_naranja,
-    output push,
-    output reg pop
+    input almost_full0,
+    input almost_full1,
+    input almost_full2,
+    input almost_full3,
+    input [3:0] state,
+    input empty0_naranja,
+    input empty1_naranja,
+    input empty2_naranja,
+    input empty3_naranja,
+    input empty0_morado,
+    input empty1_morado,
+    input empty2_morado,
+    input empty3_morado,
+    output reg push0,
+    output reg push1,
+    output reg push2,
+    output reg push3,
+    output reg pop0,
+    output reg pop1,
+    output reg pop2,
+    output reg pop3,
+    output reg [7:0] empties
 );
 //reg [2:0] analisis_tamaño;
 reg [1:0] FIFO_actual; //fifo 00 fifo 01 fifo 10 fifo 11
-reg [2:0] contador0;//contar hasta 8
-reg [2:0] contador1;//contar hasta 8
-reg [2:0] contador2;//contar hasta 8
-reg [2:0] contador3;//contar hasta 8
-reg empty;
+
 
 //Lógica de prioridades
 
-always@(posedge clk)begin
-    if(reset_L)begin
-        empty<=0;
-        FIFO_actual<=2'b00;
-        contador0<=3'b000;
-        contador1<=3'b000;
-        contador2<=3'b000;
-        contador3<=3'b000;
-        pop<=0;
+always@(*)begin
+    if(state == 4'b0001)begin
+        pop0<=0;
+        pop1<=0;
+        pop2<=0;
+        pop3<=0;
+        push0<=1;
+        push1<=1;
+        push2<=1;
+        push3<=1;
+
+
     end
     else begin
 
         //logica de cambio de fifo
-        if(FIFO_actual==2'b00)begin
-            //logica del pop por los siglos de los siglos 
-            if(contador0 !=0)begin
-                 pop<=1;
-            end
-
-
-            if(push_probador_naranja)begin
-                contador0<=contador0+1;// se hizo un push en el fifo actual en el que estamos
-            end
-            if(pop)begin
-                contador0<=contador0-1;//se hizo un pop en el fifo (el arbitro siempre hace pop mientras sea algo válido de hacer segun lo planeado)
-            end
-            if (almost_empty)begin            
-                if(contador0==0)begin
-                    empty<=1;
-                    FIFO_actual<=2'b01;
-                end
-            end
+        //logica del pop por los siglos de los siglos 
+    if (empty0_naranja ==0 )begin           //if logica pops naranjas      
+        pop0<=1;
+        pop1<=0;
+        pop2<=0;
+        pop3<=0;
+    end
+    else begin 
+    if (empty1_naranja == 0  )begin           //if logica pops naranjas      
+        pop0<=0;
+        pop1<=1;
+        pop2<=0;
+        pop3<=0;
+    end
+    else begin 
+         if (empty2_naranja==0 )begin           //if logica pops naranjas      
+            pop0<=0;
+            pop1<=0;
+            pop2<=1;
+            pop3<=0;
         end
-
-
-        if(FIFO_actual==2'b01)begin
-            //logica del pop por los siglos de los siglos 
-            if(contador1 !=0)begin
-                 pop<=1;
-            end
-
-            if(push_probador_naranja)begin
-                contador1<=contador1+1;// se hizo un push en el fifo actual en el que estamos
-            end
-            if(pop)begin
-                contador1<=contador1-1;//se hizo un pop en el fifo (el arbitro siempre hace pop mientras sea algo válido de hacer segun lo planeado)
-            end
-            if (almost_empty)begin            
-                if(contador1==0)begin
-                    empty<=1;
-                    FIFO_actual<=2'b10;
-                end
-            end
+        else begin 
+            if (empty3_naranja==0 )begin           //if logica pops naranjas      
+                    pop0<=0;
+                    pop1<=0;
+                    pop2<=0;
+                    pop3<=1;
+            end 
+        else begin 
+                    pop0<=0;
+                    pop1<=0;
+                    pop2<=0;
+                    pop3<=0;          
         end
-
-
-        if(FIFO_actual==2'b10)begin
-            //logica del pop por los siglos de los siglos 
-            if(contador2 !=0)begin
-                 pop<=1;
-            end
-
-            if(push_probador_naranja)begin
-                contador2<=contador2+1;// se hizo un push en el fifo actual en el que estamos
-            end
-            if(pop)begin
-                contador2<=contador2-1;//se hizo un pop en el fifo (el arbitro siempre hace pop mientras sea algo válido de hacer segun lo planeado)
-            end
-            if (almost_empty)begin            
-                if(contador2==0)begin
-                    empty<=1;
-                    FIFO_actual<=2'b11;
-                end
-            end
         end
-
-
-        if(FIFO_actual==2'b11)begin
-            //logica del pop por los siglos de los siglos 
-            if(contador3 !=0)begin
-                 pop<=1;
-            end
-
-            if(push_probador_naranja)begin
-                contador3<=contador3+1;// se hizo un push en el fifo actual en el que estamos
-            end
-            if(pop)begin
-                contador3<=contador3-1;//se hizo un pop en el fifo (el arbitro siempre hace pop mientras sea algo válido de hacer segun lo planeado)
-            end
-            if (almost_empty)begin            
-                if(contador3==0)begin
-                    empty<=1;
-                    FIFO_actual<=2'b00;
-                end
-            end
-        end
-
+    end
 
 
     end
+    end
+
+
+
+
+
+    // if (empty2_naranja==0 & empty0_naranja==1 & empty1_naranja==1)begin           //if logica pops naranjas      
+    //     pop0<=0;
+    //     pop1<=0;
+    //     pop2<=1;
+    //     pop3<=0;
+    // end
+    // if (empty3_naranja==0 & empty0_naranja==1 & empty1_naranja==1 & empty2_naranja ==1)begin           //if logica pops naranjas      
+    //     pop0<=0;
+    //     pop1<=0;
+    //     pop2<=0;
+    //     pop3<=1;
+    // end
+
+
+
+    //logica de fifos morados
+    if(almost_full0 | almost_full1 | almost_full2 | almost_full3)begin          
+        push0<=0;
+        push1<=0;
+        push2<=0;
+        push3<=0;
+    end
+    else begin 
+        push0<=1;
+        push1<=1;
+        push2<=1;
+        push3<=1;
+    end
+
+end
+
+
+//encapsulamiento de los empties para eventual entrada de FSM
+always@(*)begin
+     if(state== 4'b0001)begin
+       empties<=8'b00000000;  
+     end
+     else begin
+        empties[0] = empty0_naranja;
+        empties[1] = empty1_naranja;
+        empties[2] = empty2_naranja;
+        empties[3] = empty3_naranja;
+        empties[4] = empty0_morado;
+        empties[5] = empty1_morado;
+        empties[6] = empty2_morado;
+        empties[7] = empty3_morado;
+     end
 end
 
 endmodule
