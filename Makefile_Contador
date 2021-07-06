@@ -1,0 +1,18 @@
+all: sintesis autoinst execute sim gtkwave
+
+sintesis: Contador.ys
+	yosys Contador.ys
+	sed -i 's/Contador/Contador_estruct/' Contador_estruct.v
+
+autoinst:
+	emacs --batch  BancoPruebas_Contador.v  -f verilog-batch-delete-auto
+	emacs --batch  BancoPruebas_Contador.v  -f verilog-batch-inject-auto
+
+execute: BancoPruebas_Contador.v
+	iverilog -o BancoPruebas_Contador.vvp BancoPruebas_Contador.v
+
+sim: BancoPruebas_Contador.vvp
+	vvp BancoPruebas_Contador.vvp
+	
+gtkwave: Contador.vcd
+	gtkwave Contador.vcd
