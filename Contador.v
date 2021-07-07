@@ -40,7 +40,7 @@ always @(posedge clk)begin
 end
 
 // Lógica de lectura de contadores
-always @(*)begin
+always @(posedge clk)begin
 
     if(state == 4'b0001)begin
         data_out = 5'b0;
