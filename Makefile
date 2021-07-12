@@ -3,3 +3,6 @@ FIFO:
 
 Contador:
 	make -f Makefile_Contador
+
+MUX:
+	make -f Makefile_MUX
