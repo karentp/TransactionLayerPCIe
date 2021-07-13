@@ -2,7 +2,7 @@
 
 module FIFO (
     input clk,
-    input [3:0] state,                            // Estado proveniente de la SM
+    input [3:0] state,                       // Estado proveniente de la SM
     input push,
     input pop,
     input [9:0] data_in,
@@ -49,13 +49,8 @@ always@(posedge clk)begin
         full <= 0;
         empty_aux <= 1;
         empty <= 1;
-        // low_space <= 2'b00;
-        // much_space <= 2'b00;
     end
-    // if(state == 4'b0010)begin
-    //         low_space <= umbral_superior;
-    //         much_space <= umbral_inferior;
-    //     end
+
     else begin
         //  Lógica para hacer push
         if((push == 1) & (full==0))begin
@@ -122,17 +117,8 @@ always@(*)begin
     if(state==4'b0001)begin
         almost_full = 0;
         almost_empty = 0;
-        // low_space = 2'b00;
-        // much_space = 2'b00;
     end
     else begin
-        
-        // Estado de INIT = 0010
-        // if(state == 4'b0010)begin
-        //     low_space = umbral_superior;
-        //     much_space = umbral_inferior;
-        // end
-
         // Lógica de casi lleno y casi vacío
         if(contador >= low_space)begin
             almost_full = 1;

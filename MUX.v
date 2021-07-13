@@ -1,6 +1,6 @@
 module MUX(
     input clk,
-    input state,
+    input [3:0] state,
     input [9:0] P0, P1, P2, P3,
     output reg[9:0] Out0, Out1, Out2, Out3
 );
