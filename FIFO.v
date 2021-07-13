@@ -50,7 +50,6 @@ always@(posedge clk)begin
         empty_aux <= 1;
         empty <= 1;
     end
-
     else begin
         //  Lógica para hacer push
         if((push == 1) & (full==0))begin

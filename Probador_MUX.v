@@ -2,7 +2,7 @@
 
 module Probador_MUX(
     output reg clk,
-    output reg state,
+    output reg [3:0] state,
     output reg [9:0] P0, P1, P2, P3,
     input [9:0] Out0_conduct, Out1_conduct, Out2_conduct, Out3_conduct,
     input [9:0] Out0_estruct, Out1_estruct, Out2_estruct, Out3_estruct

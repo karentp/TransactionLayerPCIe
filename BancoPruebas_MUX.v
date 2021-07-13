@@ -5,7 +5,7 @@
 `include "MUX_estruct.v"
 
 
-module BancoPruebas_FIFO; // Testbench
+module BancoPruebas_MUX; // Testbench
 
     wire [9:0] Out0_conduct, Out1_conduct, Out2_conduct, Out3_conduct;
     wire [9:0] Out0_estruct, Out1_estruct, Out2_estruct, Out3_estruct;
@@ -16,7 +16,7 @@ module BancoPruebas_FIFO; // Testbench
     wire [9:0]		P2;			// From prob of Probador_MUX.v
     wire [9:0]		P3;			// From prob of Probador_MUX.v
     wire		clk;			// From prob of Probador_MUX.v
-    wire		state;			// From prob of Probador_MUX.v
+    wire [3:0]		state;			// From prob of Probador_MUX.v
     // End of automatics
 
 
@@ -28,7 +28,7 @@ module BancoPruebas_FIFO; // Testbench
         /*AUTOINST*/
 		    // Inputs
 		    .clk		(clk),
-		    .state		(state),
+		    .state		(state[3:0]),
 		    .P0			(P0[9:0]),
 		    .P1			(P1[9:0]),
 		    .P2			(P2[9:0]),
@@ -38,7 +38,7 @@ module BancoPruebas_FIFO; // Testbench
         /*AUTOINST*/
 			   // Outputs
 			   .clk			(clk),
-			   .state		(state),
+			   .state		(state[3:0]),
 			   .P0			(P0[9:0]),
 			   .P1			(P1[9:0]),
 			   .P2			(P2[9:0]),
@@ -65,7 +65,7 @@ module BancoPruebas_FIFO; // Testbench
 			     .P2		(P2[9:0]),
 			     .P3		(P3[9:0]),
 			     .clk		(clk),
-			     .state		(state));
+			     .state		(state[3:0]));
     
 endmodule
 // Local Variable:
