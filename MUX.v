@@ -10,7 +10,7 @@ reg [1:0] dest;
 
 
 // Entradas
-always@(*)begin
+always@(posedge clk)begin
     if(state == 4'b0001)begin
         CanalMedio = 10'b0;
     end
@@ -41,7 +41,7 @@ end
 
 
 // Dirección
-always@(posedge clk)begin
+always@(*)begin
     if(state == 4'b0001)begin
         dest = 2'b0;
     end

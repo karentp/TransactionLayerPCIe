@@ -16,7 +16,7 @@ module FIFO (
 reg [2:0] wr_ptr, rd_ptr;
 reg [2:0] low_space, much_space;
 reg we_a, re_a;
-reg [2:0] contador;
+reg [3:0] contador;
 reg full, empty_aux;
 
 true_dpram_sclk memory (
@@ -46,38 +46,46 @@ always@(posedge clk)begin
         wr_ptr <= 3'b0;
         rd_ptr <= 3'b0;
         contador <= 3'b0;
-        full <= 0;
-        empty_aux <= 1;
-        empty <= 1;
     end
     else begin
         //  Lógica para hacer push
-        if((push == 1) & (full==0))begin
+        if((push == 1) & (full==0) & (data_in != 10'b0))begin
             wr_ptr <= wr_ptr + 1; 
             contador <= contador + 1;
-            empty_aux <=0;
-            empty <= 0;
-
-            if(contador == 3'b111)begin
-                full <= 1;
-                contador <= 3'b111;
-            end
         end
 
         // Lógica para hacer pop
         if((pop == 1)  & (empty_aux==0))begin
             rd_ptr <= rd_ptr + 1; 
             contador <= contador - 1;
-            full <= 0;
-            
-            if(contador == 3'b000)begin
-                empty_aux <= 1;
-                empty <= 1;
-                contador <= 3'b000;
-            end
         end
     end
 end
+
+always@(*)begin
+    if(state == 4'b0001)begin
+        empty = 1;
+        empty_aux = 1;
+        full = 0;
+    end
+    else begin
+        if(contador == 4'b0000)begin
+            empty = 1;
+            empty_aux = 1;
+        end
+        else begin
+            empty = 0;
+            empty_aux = 0;
+        end
+        if(contador == 4'b1000) begin
+            full = 1;
+        end
+        else begin
+            full = 0;
+        end
+    end
+end
+
 
 always@(*)begin
     // Estado de RESET = 0001
@@ -90,22 +98,18 @@ always@(*)begin
 
         //  Lógica para hacer push
         if((push == 1) & (full==0))begin
-            we_a <= 1;
-            // empty = empty_aux;
+            we_a = 1;
         end
         else if(we_a <= 1)begin
-            we_a <= 0;
-            // empty = empty_aux;
+            we_a = 0;
         end
 
         // Lógica para hacer pop
         if((pop == 1) & (empty_aux==0))begin
-            re_a <= 1;
-            // empty = empty_aux;
+            re_a = 1;
         end
         else if(re_a <= 1)begin
-            re_a <= 0;
-            // empty = empty_aux;
+            re_a = 0;
         end
     end
 end

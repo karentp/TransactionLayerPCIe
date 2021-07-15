@@ -24,7 +24,15 @@ module arbitro(
     output reg [7:0] empties
 );
 
+always@(posedge clk)begin
+    if(state == 4'b0001)begin
+        push <= 0;
+    end
+    else begin
+        push <= 1;
+    end
 
+end
 //Lógica de prioridades
 
 always@(*)begin
@@ -33,13 +41,21 @@ always@(*)begin
         pop1=0;
         pop2=0;
         pop3=0;
-        push=1;
+        // push=1;
         // push1=1;
         // push2=1;
         // push3=1;
     end
     else begin
 
+        if(almost_full0 | almost_full1 | almost_full2 | almost_full3)begin          
+            pop0=0;
+            pop1=0;
+            pop2=0;
+            pop3=0; 
+        end
+        else begin 
+        // push=1;
             //logica de cambio de fifo
             //logica del pop por los siglos de los siglos 
         if (empty0_naranja ==0 )begin           //if logica pops naranjas      
@@ -81,14 +97,14 @@ always@(*)begin
     // end
 
     //logica de fifos morados
-    if(almost_full0 | almost_full1 | almost_full2 | almost_full3)begin          
-        push=0;
-        // push1=0;
-        // push2=0;
-        // push3=0;
-    end
-    else begin 
-        push=1;
+    // if(almost_full0 | almost_full1 | almost_full2 | almost_full3)begin          
+    //     // push=0;
+    //     // push1=0;
+    //     // push2=0;
+    //     // push3=0;
+    // end
+    // else begin 
+        // push=1;
         // push1=1;
         // push2=1;
         // push3=1;

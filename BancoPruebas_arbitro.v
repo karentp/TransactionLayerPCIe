@@ -49,7 +49,11 @@ arbitro arbitro_conductual (
 			    .empties		(empties[7:0]),
 			    // Inputs
 			    .clk		(clk),
-			    .state		(state[3:0]));
+			    .state		(state[3:0]),
+			    .push0		(push0),
+			    .push1		(push1),
+			    .push2		(push2),
+			    .push3		(push3));
 
 
 arbitro_estruct arbitro_estructural (
@@ -77,6 +81,10 @@ arbitro_estruct arbitro_estructural (
           /*AUTOINST*/
 				     // Inputs
 				     .clk		(clk),
+				     .push0		(push0),
+				     .push1		(push1),
+				     .push2		(push2),
+				     .push3		(push3),
 				     .state		(state[3:0]));
 
 

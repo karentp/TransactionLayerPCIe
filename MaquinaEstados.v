@@ -4,7 +4,7 @@ module MaquinaEstados (
     input reset,
     input init,
     input [7:0] empties,
-    output reg [2:0] Umbral_superior, Umbral_inferior,
+    output reg [2:0] umbral_superior, umbral_inferior,
     output reg [3:0] state
 );
 reg [3:0] ProximoEstado, Estado;
@@ -17,19 +17,17 @@ parameter [3:0] ACTIVE = 4'b1000;
 always@(posedge clk)begin
     if (reset)begin
         Estado <= RESET;
-        Umbral_superior<=0;
-        Umbral_inferior<=0;
+        umbral_superior<=0;
+        umbral_inferior<=0;
     end
     else begin
         if (init)begin
             Estado <= INIT;
+            umbral_superior <= Umbral_alto;
+            umbral_inferior <= Umbral_bajo;
         end
         else begin
             Estado <= ProximoEstado;
-            if(Estado == INIT)begin
-                Umbral_superior <= Umbral_alto;
-                Umbral_inferior <= Umbral_bajo;
-            end
         end
     end
 end
@@ -37,7 +35,7 @@ end
 always@(*)begin
     
     if(reset)begin
-        state = 0;
+        state = RESET;
         ProximoEstado = 0;
     end
     else begin
@@ -58,7 +56,7 @@ always@(*)begin
 
         //      *** IDLE ***       //
         IDLE: begin
-            if(empties != 8'b0)begin
+            if(empties != 8'hFF)begin
                 ProximoEstado = ACTIVE;
             end
             else begin
@@ -68,7 +66,7 @@ always@(*)begin
 
         //      *** ACTIVE ***       //
         ACTIVE: begin
-            if(empties != 8'b0)begin
+            if(empties != 8'hFF)begin
                 ProximoEstado = ACTIVE;
             end
             else begin
