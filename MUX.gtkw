@@ -1,0 +1,49 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Mon Jul 12 06:40:12 2021
+[*]
+[dumpfile] "/mnt/c/Users/felip/Documents/1s2021/DigitalesII/Proyecto/TransactionLayerPCIe/MUX.vcd"
+[dumpfile_mtime] "Mon Jul 12 06:35:58 2021"
+[dumpfile_size] 28082
+[savefile] "/mnt/c/Users/felip/Documents/1s2021/DigitalesII/Proyecto/TransactionLayerPCIe/MUX.gtkw"
+[timestart] 0
+[size] 1366 745
+[pos] -35 -35
+*-13.808124 71000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 192
+[signals_width] 167
+[sst_expanded] 1
+[sst_vpaned_height] 209
+@28
+[color] 1
+BancoPruebas_FIFO.clk
+[color] 3
+BancoPruebas_FIFO.state
+@200
+-*INPUT*
+@22
+BancoPruebas_FIFO.P0[9:0]
+BancoPruebas_FIFO.P1[9:0]
+BancoPruebas_FIFO.P2[9:0]
+BancoPruebas_FIFO.P3[9:0]
+@200
+-*OUTPUT*
+@22
+[color] 2
+BancoPruebas_FIFO.Out0_conduct[9:0]
+[color] 2
+BancoPruebas_FIFO.Out0_estruct[9:0]
+[color] 5
+BancoPruebas_FIFO.Out1_conduct[9:0]
+[color] 5
+BancoPruebas_FIFO.Out1_estruct[9:0]
+[color] 7
+BancoPruebas_FIFO.Out2_conduct[9:0]
+[color] 7
+BancoPruebas_FIFO.Out2_estruct[9:0]
+[color] 6
+BancoPruebas_FIFO.Out3_conduct[9:0]
+[color] 6
+BancoPruebas_FIFO.Out3_estruct[9:0]
+[pattern_trace] 1
+[pattern_trace] 0

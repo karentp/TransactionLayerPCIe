@@ -1,0 +1,18 @@
+all: sintesis autoinst execute sim gtkwave
+
+sintesis: MUX.ys
+	yosys MUX.ys
+	sed -i 's/MUX/MUX_estruct/' MUX_estruct.v
+
+autoinst:
+	emacs --batch  BancoPruebas_MUX.v  -f verilog-batch-delete-auto
+	emacs --batch  BancoPruebas_MUX.v  -f verilog-batch-inject-auto
+
+execute: BancoPruebas_MUX.v
+	iverilog -o BancoPruebas_MUX.vvp BancoPruebas_MUX.v
+
+sim: BancoPruebas_MUX.vvp
+	vvp BancoPruebas_MUX.vvp
+	
+gtkwave: MUX.vcd
+	gtkwave MUX.vcd

@@ -1,0 +1,20 @@
+all: autoinst execute sim 
+autoinst:
+
+	emacs --batch  TransactionLayerPCIe_e.v  -f verilog-batch-delete-auto
+	emacs --batch  TransactionLayerPCIe_e.v  -f verilog-batch-inject-auto
+
+	emacs --batch  TransactionLayerPCIe_c.v  -f verilog-batch-delete-auto
+	emacs --batch  TransactionLayerPCIe_c.v  -f verilog-batch-inject-auto
+
+	emacs --batch  BancoPruebas.v  -f verilog-batch-delete-auto
+	emacs --batch  BancoPruebas.v  -f verilog-batch-inject-auto
+
+execute: BancoPruebas.v
+	iverilog -o BancoPruebas.vvp BancoPruebas.v
+
+sim: BancoPruebas.vvp
+	vvp BancoPruebas.vvp
+	
+gtkwave: Completo.vcd
+	gtkwave Completo.vcd &

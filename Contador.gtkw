@@ -1,0 +1,63 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Tue Jul  6 07:01:30 2021
+[*]
+[dumpfile] "/mnt/c/Users/felip/Documents/1s2021/DigitalesII/Proyecto/TransactionLayerPCIe/Contador.vcd"
+[dumpfile_mtime] "Tue Jul  6 06:58:54 2021"
+[dumpfile_size] 567028
+[savefile] "/mnt/c/Users/felip/Documents/1s2021/DigitalesII/Proyecto/TransactionLayerPCIe/Contador.gtkw"
+[timestart] 0
+[size] 1366 745
+[pos] -113 -113
+*-15.656377 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 192
+[signals_width] 154
+[sst_expanded] 1
+[sst_vpaned_height] 209
+@28
+[color] 1
+BancoPruebas_Contador.clk
+@22
+BancoPruebas_Contador.data_in_0[9:0]
+BancoPruebas_Contador.data_in_1[9:0]
+BancoPruebas_Contador.data_in_2[9:0]
+BancoPruebas_Contador.data_in_3[9:0]
+@28
+[color] 3
+BancoPruebas_Contador.pop
+[color] 3
+BancoPruebas_Contador.push_0
+[color] 3
+BancoPruebas_Contador.push_1
+[color] 3
+BancoPruebas_Contador.push_2
+[color] 3
+BancoPruebas_Contador.push_3
+@22
+BancoPruebas_Contador.data_out_0_c[9:0]
+BancoPruebas_Contador.data_out_0_e[9:0]
+BancoPruebas_Contador.data_out_1_c[9:0]
+BancoPruebas_Contador.data_out_1_e[9:0]
+BancoPruebas_Contador.data_out_2_c[9:0]
+BancoPruebas_Contador.data_out_2_e[9:0]
+BancoPruebas_Contador.data_out_3_c[9:0]
+BancoPruebas_Contador.data_out_3_e[9:0]
+[color] 5
+BancoPruebas_Contador.state[3:0]
+@28
+[color] 2
+BancoPruebas_Contador.req
+[color] 2
+BancoPruebas_Contador.idx[1:0]
+@22
+[color] 7
+BancoPruebas_Contador.data_out_c[4:0]
+[color] 7
+BancoPruebas_Contador.data_out_e[4:0]
+@28
+[color] 3
+BancoPruebas_Contador.valid_c
+[color] 3
+BancoPruebas_Contador.valid_e
+[pattern_trace] 1
+[pattern_trace] 0

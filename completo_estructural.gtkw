@@ -1,0 +1,194 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Fri Jul 16 03:22:21 2021
+[*]
+[dumpfile] "/mnt/c/Users/felip/Documents/1s2021/DigitalesII/Proyecto/TransactionLayerPCIe/completo.vcd"
+[dumpfile_mtime] "Fri Jul 16 02:59:06 2021"
+[dumpfile_size] 293041
+[savefile] "/mnt/c/Users/felip/Documents/1s2021/DigitalesII/Proyecto/TransactionLayerPCIe/completo_estructural.gtkw"
+[timestart] 3087600
+[size] 1366 745
+[pos] -1 -1
+*-16.484276 3284200 2130300 24800 105300 55600 725500 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[markername] APrueba 6 y 7
+[markername] BPrueba 1
+[markername] CPrueba 3
+[markername] DPrueba 2
+[markername] EPrueba 4 y 5
+[treeopen] BancoPruebas.
+[treeopen] BancoPruebas.estructural.
+[sst_width] 192
+[signals_width] 150
+[sst_expanded] 1
+[sst_vpaned_height] 209
+@28
+[color] 5
+BancoPruebas.estructural.FIFO_in0.clk
+@200
+-Máquina de estados
+@28
+[color] 5
+BancoPruebas.estructural.FSM.state[3:0]
+[color] 5
+BancoPruebas.estructural.FSM.init
+[color] 5
+BancoPruebas.estructural.FSM.reset
+[color] 5
+BancoPruebas.estructural.FSM.Umbral_alto[2:0]
+[color] 5
+BancoPruebas.estructural.FSM.Umbral_bajo[2:0]
+[color] 5
+BancoPruebas.estructural.FSM.umbral_inferior[2:0]
+[color] 5
+BancoPruebas.estructural.FSM.umbral_superior[2:0]
+@200
+-
+-FIFO_IN0
+@22
+[color] 2
+BancoPruebas.estructural.FIFO_in0.data_in[9:0]
+[color] 2
+BancoPruebas.estructural.FIFO_in0.data_out[9:0]
+[color] 2
+BancoPruebas.estructural.FIFO_in0.contador[3:0]
+@28
+[color] 2
+BancoPruebas.estructural.FIFO_in0.pop
+[color] 2
+BancoPruebas.estructural.FIFO_in0.push
+[color] 2
+BancoPruebas.estructural.FIFO_in0.almost_full
+@200
+-
+-FIFO_OUT0
+@22
+[color] 7
+BancoPruebas.estructural.FIFO_out0.data_in[9:0]
+[color] 7
+BancoPruebas.estructural.FIFO_out0.data_out[9:0]
+[color] 7
+BancoPruebas.estructural.FIFO_out0.contador[3:0]
+@28
+[color] 7
+BancoPruebas.estructural.FIFO_out0.pop
+[color] 7
+BancoPruebas.estructural.FIFO_out0.almost_full
+@200
+-
+-FIFO_IN1
+@22
+[color] 2
+BancoPruebas.estructural.FIFO_in1.data_in[9:0]
+[color] 2
+BancoPruebas.estructural.FIFO_in1.data_out[9:0]
+[color] 2
+BancoPruebas.estructural.FIFO_in1.contador[3:0]
+@28
+[color] 2
+BancoPruebas.estructural.FIFO_in1.pop
+[color] 2
+BancoPruebas.estructural.FIFO_in1.almost_full
+@200
+-
+-FIFO_OUT1
+@22
+[color] 7
+BancoPruebas.estructural.FIFO_out1.data_in[9:0]
+[color] 7
+BancoPruebas.estructural.FIFO_out1.data_out[9:0]
+[color] 7
+BancoPruebas.estructural.FIFO_out1.contador[3:0]
+@28
+[color] 7
+BancoPruebas.estructural.FIFO_out1.pop
+[color] 7
+BancoPruebas.estructural.FIFO_out1.almost_full
+@200
+-
+-FIFO_IN2
+@22
+[color] 2
+BancoPruebas.estructural.FIFO_in2.data_in[9:0]
+[color] 2
+BancoPruebas.estructural.FIFO_in2.data_out[9:0]
+[color] 2
+BancoPruebas.estructural.FIFO_in2.contador[3:0]
+@28
+[color] 2
+BancoPruebas.estructural.FIFO_in2.pop
+[color] 2
+BancoPruebas.estructural.FIFO_in2.almost_full
+@200
+-
+-FIFO_OUT2
+@22
+[color] 7
+BancoPruebas.estructural.FIFO_out2.data_in[9:0]
+[color] 7
+BancoPruebas.estructural.FIFO_out2.data_out[9:0]
+[color] 7
+BancoPruebas.estructural.FIFO_out2.contador[3:0]
+@28
+[color] 7
+BancoPruebas.estructural.FIFO_out2.pop
+@29
+[color] 7
+BancoPruebas.estructural.FIFO_out2.almost_full
+@200
+-
+-FIFO_IN3
+@22
+[color] 2
+BancoPruebas.estructural.FIFO_in3.data_in[9:0]
+[color] 2
+BancoPruebas.estructural.FIFO_in3.data_out[9:0]
+[color] 2
+BancoPruebas.estructural.FIFO_in3.contador[3:0]
+@28
+[color] 2
+BancoPruebas.estructural.FIFO_in3.pop
+[color] 2
+BancoPruebas.estructural.FIFO_in3.almost_full
+@200
+-
+-FIFO_OUT3
+@22
+[color] 7
+BancoPruebas.estructural.FIFO_out3.data_in[9:0]
+[color] 7
+BancoPruebas.estructural.FIFO_out3.data_out[9:0]
+[color] 7
+BancoPruebas.estructural.FIFO_out3.contador[3:0]
+@28
+[color] 7
+BancoPruebas.estructural.FIFO_out3.pop
+[color] 7
+BancoPruebas.estructural.FIFO_out3.almost_full
+@200
+-
+-Contadores
+@24
+[color] 3
+BancoPruebas.estructural.Contadores.contador_0[4:0]
+[color] 3
+BancoPruebas.estructural.Contadores.contador_1[4:0]
+[color] 3
+BancoPruebas.estructural.Contadores.contador_2[4:0]
+[color] 3
+BancoPruebas.estructural.Contadores.contador_3[4:0]
+[color] 3
+BancoPruebas.estructural.Contadores.idx[1:0]
+[color] 3
+BancoPruebas.estructural.Contadores.req
+[color] 3
+BancoPruebas.estructural.Contadores.data_out[4:0]
+[color] 3
+BancoPruebas.estructural.Contadores.valid
+@200
+-
+-Checker
+@28
+[color] 3
+BancoPruebas.testbench.Checker_data_out
+[pattern_trace] 1
+[pattern_trace] 0
