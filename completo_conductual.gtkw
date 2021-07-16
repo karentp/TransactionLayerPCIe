@@ -1,23 +1,24 @@
 [*]
 [*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
-[*] Thu Jul 15 06:56:40 2021
+[*] Fri Jul 16 03:01:40 2021
 [*]
 [dumpfile] "/mnt/c/Users/felip/Documents/1s2021/DigitalesII/Proyecto/TransactionLayerPCIe/completo.vcd"
-[dumpfile_mtime] "Thu Jul 15 06:53:39 2021"
-[dumpfile_size] 1134800
+[dumpfile_mtime] "Fri Jul 16 02:59:06 2021"
+[dumpfile_size] 293041
 [savefile] "/mnt/c/Users/felip/Documents/1s2021/DigitalesII/Proyecto/TransactionLayerPCIe/completo_conductual.gtkw"
-[timestart] 0
+[timestart] 3053100
 [size] 1366 745
 [pos] -1 -1
-*-16.600363 258800 2128100 24800 105300 1250400 55600 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-16.600363 3405300 2130300 24800 105300 -1 55600 725500 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [markername] APrueba 6 y 7
 [markername] BPrueba 1
 [markername] CPrueba 3
-[markername] DPrueba 4 y 5
 [markername] EPrueba 2
+[markername] FPrueba 4 y 5
 [treeopen] BancoPruebas.
 [treeopen] BancoPruebas.conductual.
 [treeopen] BancoPruebas.conductual.FIFO_out0.
+[treeopen] BancoPruebas.estructural.
 [sst_width] 192
 [signals_width] 156
 [sst_expanded] 1
@@ -58,7 +59,6 @@ BancoPruebas.conductual.FIFO_in0.contador[3:0]
 BancoPruebas.conductual.FIFO_in0.pop
 [color] 2
 BancoPruebas.conductual.FIFO_in0.push
-@29
 [color] 2
 BancoPruebas.conductual.FIFO_in0.almost_full
 @200
@@ -193,5 +193,9 @@ BancoPruebas.conductual.Contadores.req
 BancoPruebas.conductual.Contadores.idx[1:0]
 @200
 -
+-Checker
+@28
+[color] 3
+BancoPruebas.testbench.Checker_data_out
 [pattern_trace] 1
 [pattern_trace] 0

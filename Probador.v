@@ -14,7 +14,7 @@ module Probador(
     input valid_c, valid_e
 );
 
-reg Checker_contador, Checker_valid, Checker_data_out;
+reg Checker_data_out;
 
 initial clk <= 1'b0;
 always #10 clk <= ~clk;
@@ -470,18 +470,6 @@ always @(posedge clk) begin
     end
     else begin
         Checker_data_out = 1'b0;
-    end
-    if((contador_c == contador_e))	begin
-        Checker_contador = 1'b1;
-    end
-    else begin
-        Checker_contador = 0;
-    end
-    if(valid_c == valid_e)begin
-        Checker_valid = 1;
-    end
-    else begin
-        Checker_valid =0;
     end
 end
 endmodule
