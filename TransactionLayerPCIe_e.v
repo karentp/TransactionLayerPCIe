@@ -30,144 +30,144 @@ wire [9:0] outFIFO_in0, outFIFO_in1, outFIFO_in2, outFIFO_in3;
 
 /*AUTOWIRE*/
 // Beginning of automatic wires (for undeclared instantiated-module outputs)
-wire			almost_empty;		// From FIFO_in0 of FIFO.v, ...
-wire			almost_full;		// From FIFO_in0 of FIFO.v, ...
-wire [7:0]		empties;		// From arbitreiro of arbitro.v
-wire			push;			// From arbitreiro of arbitro.v
-wire [3:0]		state;			// From FSM of MaquinaEstados.v
-wire [2:0]		umbral_inferior;	// From FSM of MaquinaEstados.v
-wire [2:0]		umbral_superior;	// From FSM of MaquinaEstados.v
+wire			almost_empty;		// From FIFO_in0 of FIFO_estruct.v, ...
+wire			almost_full;		// From FIFO_in0 of FIFO_estruct.v, ...
+wire [7:0]		empties;		// From arbitreiro of arbitro_estruct.v
+wire			push;			// From arbitreiro of arbitro_estruct.v
+wire [3:0]		state;			// From FSM of MaquinaEstados_estruct.v
+wire [2:0]		umbral_inferior;	// From FSM of MaquinaEstados_estruct.v
+wire [2:0]		umbral_superior;	// From FSM of MaquinaEstados_estruct.v
 // End of automatics
 
 //------------------------------------- FIFOS de entrada -------------------------------//
-FIFO FIFO_in0( 
+FIFO_estruct FIFO_in0( 
     .push(push_in0),
     .pop(pop_Ar0),
     .data_in(data_in0),
     .data_out(outFIFO_in0),
     .empty(empty0),
     /*AUTOINST*/
-	      // Outputs
-	      .almost_full		(almost_full),
-	      .almost_empty		(almost_empty),
-	      // Inputs
-	      .clk			(clk),
-	      .state			(state[3:0]),
-	      .umbral_superior		(umbral_superior[2:0]),
-	      .umbral_inferior		(umbral_inferior[2:0]));
-FIFO FIFO_in1( 
+		      // Outputs
+		      .almost_empty	(almost_empty),
+		      .almost_full	(almost_full),
+		      // Inputs
+		      .clk		(clk),
+		      .state		(state[3:0]),
+		      .umbral_inferior	(umbral_inferior[2:0]),
+		      .umbral_superior	(umbral_superior[2:0]));
+FIFO_estruct FIFO_in1( 
     .push(push_in1),
     .pop(pop_Ar1),
     .data_in(data_in1),
     .data_out(outFIFO_in1),
     .empty(empty1),
     /*AUTOINST*/
-	      // Outputs
-	      .almost_full		(almost_full),
-	      .almost_empty		(almost_empty),
-	      // Inputs
-	      .clk			(clk),
-	      .state			(state[3:0]),
-	      .umbral_superior		(umbral_superior[2:0]),
-	      .umbral_inferior		(umbral_inferior[2:0]));
-FIFO FIFO_in2( 
+		      // Outputs
+		      .almost_empty	(almost_empty),
+		      .almost_full	(almost_full),
+		      // Inputs
+		      .clk		(clk),
+		      .state		(state[3:0]),
+		      .umbral_inferior	(umbral_inferior[2:0]),
+		      .umbral_superior	(umbral_superior[2:0]));
+FIFO_estruct FIFO_in2( 
     .push(push_in2),
     .pop(pop_Ar2),
     .data_in(data_in2),
     .data_out(outFIFO_in2),
     .empty(empty2),
     /*AUTOINST*/
-	      // Outputs
-	      .almost_full		(almost_full),
-	      .almost_empty		(almost_empty),
-	      // Inputs
-	      .clk			(clk),
-	      .state			(state[3:0]),
-	      .umbral_superior		(umbral_superior[2:0]),
-	      .umbral_inferior		(umbral_inferior[2:0]));
-FIFO FIFO_in3( 
+		      // Outputs
+		      .almost_empty	(almost_empty),
+		      .almost_full	(almost_full),
+		      // Inputs
+		      .clk		(clk),
+		      .state		(state[3:0]),
+		      .umbral_inferior	(umbral_inferior[2:0]),
+		      .umbral_superior	(umbral_superior[2:0]));
+FIFO_estruct FIFO_in3( 
     .push(push_in3),
     .pop(pop_Ar3),
     .data_in(data_in3),
     .data_out(outFIFO_in3),
     .empty(empty3),
     /*AUTOINST*/
-	      // Outputs
-	      .almost_full		(almost_full),
-	      .almost_empty		(almost_empty),
-	      // Inputs
-	      .clk			(clk),
-	      .state			(state[3:0]),
-	      .umbral_superior		(umbral_superior[2:0]),
-	      .umbral_inferior		(umbral_inferior[2:0]));
+		      // Outputs
+		      .almost_empty	(almost_empty),
+		      .almost_full	(almost_full),
+		      // Inputs
+		      .clk		(clk),
+		      .state		(state[3:0]),
+		      .umbral_inferior	(umbral_inferior[2:0]),
+		      .umbral_superior	(umbral_superior[2:0]));
 
 
 //------------------------------------- FIFOS de salida -------------------------------//
 
-FIFO FIFO_out0( 
+FIFO_estruct FIFO_out0( 
     .pop(pop_in0),
     .data_in(inFIFO_out0),
     .data_out(data_out0),
     .empty(empty4),
     .almost_full		(almost_full0),
     /*AUTOINST*/
-	       // Outputs
-	       .almost_empty		(almost_empty),
-	       // Inputs
-	       .clk			(clk),
-	       .state			(state[3:0]),
-	       .push			(push),
-	       .umbral_superior		(umbral_superior[2:0]),
-	       .umbral_inferior		(umbral_inferior[2:0]));
-FIFO FIFO_out1( 
+		       // Outputs
+		       .almost_empty	(almost_empty),
+		       // Inputs
+		       .clk		(clk),
+		       .push		(push),
+		       .state		(state[3:0]),
+		       .umbral_inferior	(umbral_inferior[2:0]),
+		       .umbral_superior	(umbral_superior[2:0]));
+FIFO_estruct FIFO_out1( 
     .pop(pop_in1),
     .data_in(inFIFO_out1),
     .data_out(data_out1),
     .empty(empty5),
     .almost_full		(almost_full1),
     /*AUTOINST*/
-	       // Outputs
-	       .almost_empty		(almost_empty),
-	       // Inputs
-	       .clk			(clk),
-	       .state			(state[3:0]),
-	       .push			(push),
-	       .umbral_superior		(umbral_superior[2:0]),
-	       .umbral_inferior		(umbral_inferior[2:0]));
-FIFO FIFO_out2( 
+		       // Outputs
+		       .almost_empty	(almost_empty),
+		       // Inputs
+		       .clk		(clk),
+		       .push		(push),
+		       .state		(state[3:0]),
+		       .umbral_inferior	(umbral_inferior[2:0]),
+		       .umbral_superior	(umbral_superior[2:0]));
+FIFO_estruct FIFO_out2( 
     .pop(pop_in2),
     .data_in(inFIFO_out2),
     .data_out(data_out2),
     .empty(empty6),
     .almost_full		(almost_full2),
     /*AUTOINST*/
-	       // Outputs
-	       .almost_empty		(almost_empty),
-	       // Inputs
-	       .clk			(clk),
-	       .state			(state[3:0]),
-	       .push			(push),
-	       .umbral_superior		(umbral_superior[2:0]),
-	       .umbral_inferior		(umbral_inferior[2:0]));
-FIFO FIFO_out3( 
+		       // Outputs
+		       .almost_empty	(almost_empty),
+		       // Inputs
+		       .clk		(clk),
+		       .push		(push),
+		       .state		(state[3:0]),
+		       .umbral_inferior	(umbral_inferior[2:0]),
+		       .umbral_superior	(umbral_superior[2:0]));
+FIFO_estruct FIFO_out3( 
     .pop(pop_in3),
     .data_in(inFIFO_out3),
     .data_out(data_out3),
     .empty(empty7),
     .almost_full		(almost_full3),
     /*AUTOINST*/
-	       // Outputs
-	       .almost_empty		(almost_empty),
-	       // Inputs
-	       .clk			(clk),
-	       .state			(state[3:0]),
-	       .push			(push),
-	       .umbral_superior		(umbral_superior[2:0]),
-	       .umbral_inferior		(umbral_inferior[2:0]));
+		       // Outputs
+		       .almost_empty	(almost_empty),
+		       // Inputs
+		       .clk		(clk),
+		       .push		(push),
+		       .state		(state[3:0]),
+		       .umbral_inferior	(umbral_inferior[2:0]),
+		       .umbral_superior	(umbral_superior[2:0]));
 
 //------------------------------------- MUXES -------------------------------//
 
-MUX multiplexores(
+MUX_estruct multiplexores(
     .P0(outFIFO_in0),
     .P1(outFIFO_in1),
     .P2(outFIFO_in2),
@@ -177,35 +177,35 @@ MUX multiplexores(
     .Out2(inFIFO_out2),
     .Out3(inFIFO_out3),
     /*AUTOINST*/
-		  // Inputs
-		  .clk			(clk),
-		  .state		(state[3:0]));
+			  // Inputs
+			  .clk			(clk),
+			  .state		(state[3:0]));
 
 
 //------------------------------------- Contadores -------------------------------//
 
 
-Contador Contadores(
+Contador_estruct Contadores(
     .data_FIFO_0(data_out0),
     .data_FIFO_1(data_out1),
     .data_FIFO_2(data_out2),
     .data_FIFO_3(data_out3),
     .data_out(contador),
     /*AUTOINST*/
-		    // Outputs
-		    .valid		(valid),
-		    // Inputs
-		    .req		(req),
-		    .clk		(clk),
-		    .state		(state[3:0]),
-		    .idx		(idx[1:0]));
+			    // Outputs
+			    .valid		(valid),
+			    // Inputs
+			    .clk		(clk),
+			    .idx		(idx[1:0]),
+			    .req		(req),
+			    .state		(state[3:0]));
 
 
 //------------------------------------- Arbitro ------------------------------------------//
 
 
 
-arbitro arbitreiro(
+arbitro_estruct arbitreiro(
     .empty0_naranja(empty0),
     .empty1_naranja(empty1),
     .empty2_naranja(empty2),
@@ -219,34 +219,34 @@ arbitro arbitreiro(
     .pop2(pop_Ar2),
     .pop3(pop_Ar3),
     /*AUTOINST*/
-		   // Outputs
-		   .push		(push),
-		   .empties		(empties[7:0]),
-		   // Inputs
-		   .clk			(clk),
-		   .almost_full0	(almost_full0),
-		   .almost_full1	(almost_full1),
-		   .almost_full2	(almost_full2),
-		   .almost_full3	(almost_full3),
-		   .state		(state[3:0]));
+			   // Outputs
+			   .empties		(empties[7:0]),
+			   .push		(push),
+			   // Inputs
+			   .almost_full0	(almost_full0),
+			   .almost_full1	(almost_full1),
+			   .almost_full2	(almost_full2),
+			   .almost_full3	(almost_full3),
+			   .clk			(clk),
+			   .state		(state[3:0]));
 
 
 
 //------------------------------------- Maquina de estados  -------------------------------//
 
-MaquinaEstados FSM (
+MaquinaEstados_estruct FSM (
     /*AUTOINST*/
-		    // Outputs
-		    .umbral_superior	(umbral_superior[2:0]),
-		    .umbral_inferior	(umbral_inferior[2:0]),
-		    .state		(state[3:0]),
-		    // Inputs
-		    .clk		(clk),
-		    .Umbral_alto	(Umbral_alto[2:0]),
-		    .Umbral_bajo	(Umbral_bajo[2:0]),
-		    .reset		(reset),
-		    .init		(init),
-		    .empties		(empties[7:0]));
+			    // Outputs
+			    .state		(state[3:0]),
+			    .umbral_inferior	(umbral_inferior[2:0]),
+			    .umbral_superior	(umbral_superior[2:0]),
+			    // Inputs
+			    .Umbral_alto	(Umbral_alto[2:0]),
+			    .Umbral_bajo	(Umbral_bajo[2:0]),
+			    .clk		(clk),
+			    .empties		(empties[7:0]),
+			    .init		(init),
+			    .reset		(reset));
 
 endmodule
 // Local Variable:
