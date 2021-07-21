@@ -40,18 +40,6 @@ always@(posedge clk)begin
     end
 end
 
-
-// Dirección
-// always@(*)begin
-//     if(state == 4'b0001)begin
-//         dest = 2'b0;
-//     end
-//     else begin
-//         dest = CanalMedio[9:8];
-//     end
-// end
-
-
 // Salidas
 always@(negedge clk)begin
     if(state == 4'b0001)begin

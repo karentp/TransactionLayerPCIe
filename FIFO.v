@@ -48,22 +48,16 @@ always@(posedge clk)begin
         rd_ptr <= 3'b0;
         contador <= 3'b0;
         empty = 1;
-        // empty_aux = 1;
-        // full = 0;
-        // empty <= 1;
     end
     else begin
         //  Lógica para hacer push
-        // empty <= empty_aux;
         if((push == 1) & (contador != 4'b1000) & (data_in != 10'b0))begin
             wr_ptr <= wr_ptr + 1; 
             contador <= contador + 1;
             empty <= 0;
-        // end
-        // else begin
-        if(contador == 4'b1000) begin
-            full <= 1;
-        end
+            if(contador == 4'b1000) begin
+                full <= 1;
+            end
         end
 
         // Lógica para hacer pop
@@ -71,47 +65,18 @@ always@(posedge clk)begin
             rd_ptr <= rd_ptr + 1; 
             contador <= contador - 1;
             full <= 0;
-        // end
-        // else begin
             if(contador == 4'b0001)begin
                 empty <= 1;
             end
         end
-        // end
     end
 end
-
-// always@(*)begin
-//     if(state == 4'b0001)begin
-//         empty = 1;
-//         // empty_aux = 1;
-//         full = 0;
-//     end
-//     else begin
-//         if(contador == 4'b0000)begin
-//             empty = 1;
-//             // empty_aux = 1;
-//         end
-//         else begin
-//             empty = 0;
-//             // empty_aux = 0;
-//         end
-//         if(contador == 4'b1000) begin
-//             full = 1;
-//         end
-//         else begin
-//             full = 0;
-//         end
-//     end
-// end
-
 
 always@(*)begin
     // Estado de RESET = 0001
     if(state == 4'b0001)begin
         we_a <= 0;
         re_a <= 0;
-        // empty = 1;
     end
     else begin
 

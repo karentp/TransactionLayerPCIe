@@ -320,14 +320,7 @@ initial begin
     @(posedge clk);
 
 
-    
-    // push_in0 <= 0;
-
-
     // SEGUNDO VALOR
-    // @(posedge clk);
-    // push_in0 <= 1;
-    // push_in1 <= 0;
     data_in0 <= 10'b0100000001;
     data_in1 <= 10'b0100000010;
     data_in2 <= 10'b0100000011;
@@ -344,17 +337,6 @@ initial begin
     @(posedge clk);
     @(posedge clk);
     @(posedge clk);
-
-
-    // push_in0 <= 0;
-    // push_in1 <= 1;
-    // data_in0 <= 10'b0000000000;
-    // data_in1 <= 10'b0000000000;
-    // data_in2 <= 10'b0000000000;
-    // data_in3 <= 10'b0000000000;
-    // @(posedge clk);
-    // @(posedge clk);
-    // @(posedge clk);
 
 
     // TERCER VALOR
@@ -375,12 +357,6 @@ data_in0 <= 10'b0000000000;
 
                 // CERO
     @(posedge clk);
-    // push_in0 <= 0;
-    // data_in0 <= 10'b0000000000;
-    // data_in1 <= 10'b0000000000;
-    // data_in2 <= 10'b0000000000;
-    // data_in3 <= 10'b0000000000;
-    // @(posedge clk);
 
     // CUARTO VALOR
     @(posedge clk);

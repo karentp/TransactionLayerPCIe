@@ -37,9 +37,6 @@ arbitro arbitro_conductual (
           .empty2_morado(empty2_morado),
           .empty3_morado(empty3_morado),
           .push(push),
-        //   .push1(push1),
-        //   .push2(push2),
-        //   .push3(push3),
           .pop0(pop0),
           .pop1(pop1),
           .pop2(pop2),
@@ -70,9 +67,6 @@ arbitro_estruct arbitro_estructural (
           .empty2_morado(empty2_morado),
           .empty3_morado(empty3_morado),
           .push(push_estruct),
-        //   .push1(push1_estruct),
-        //   .push2(push2_estruct),
-        //   .push3(push3_estruct),
           .pop0(pop0_estruct),
           .pop1(pop1_estruct),
           .pop2(pop2_estruct),
@@ -102,9 +96,6 @@ Probador_arbitro Probador(
           .empty2_morado(empty2_morado),
           .empty3_morado(empty3_morado),
           .push(push),
-        //   .push1(push1),
-        //   .push2(push2),
-        //   .push3(push3),
           .pop0(pop0),
           .pop1(pop1),
           .pop2(pop2),
@@ -118,13 +109,6 @@ Probador_arbitro Probador(
 			  .empties_estruct	(empties_estruct[7:0]),
 			  .push_estruct		(push_estruct));
 
-
-
-
-
-
-
-    
 endmodule
 // Local Variable:
    // eval:(verilog-read-defines)

@@ -14,9 +14,6 @@ module arbitro(
     input empty2_morado,
     input empty3_morado,
     output reg push,
-    // output reg push1,
-    // output reg push2,
-    // output reg push3,
     output reg pop0,
     output reg pop1,
     output reg pop2,
@@ -33,6 +30,7 @@ always@(posedge clk)begin
     end
 
 end
+
 //Lógica de prioridades
 
 always@(*)begin
@@ -41,10 +39,6 @@ always@(*)begin
         pop1=0;
         pop2=0;
         pop3=0;
-        // push=1;
-        // push1=1;
-        // push2=1;
-        // push3=1;
     end
     else begin
 
@@ -55,60 +49,45 @@ always@(*)begin
             pop3=0; 
         end
         else begin 
-        // push=1;
             //logica de cambio de fifo
             //logica del pop por los siglos de los siglos 
-        if (empty0_naranja ==0 )begin           //if logica pops naranjas      
-            pop0=1;
-            pop1=0;
-            pop2=0;
-            pop3=0;
-        end
-        else begin 
-            if (empty1_naranja == 0  )begin           //if logica pops naranjas      
-                pop0=0;
-                pop1=1;
+            if (empty0_naranja ==0 )begin           //if logica pops naranjas      
+                pop0=1;
+                pop1=0;
                 pop2=0;
                 pop3=0;
             end
             else begin 
-                if (empty2_naranja==0 )begin           //if logica pops naranjas      
+                if (empty1_naranja == 0  )begin           //if logica pops naranjas      
                     pop0=0;
-                    pop1=0;
-                    pop2=1;
+                    pop1=1;
+                    pop2=0;
                     pop3=0;
                 end
                 else begin 
-                    if (empty3_naranja==0 )begin           //if logica pops naranjas      
+                    if (empty2_naranja==0 )begin           //if logica pops naranjas      
                         pop0=0;
                         pop1=0;
-                        pop2=0;
-                        pop3=1;
-                    end 
+                        pop2=1;
+                        pop3=0;
+                    end
                     else begin 
-                        pop0=0;
-                        pop1=0;
-                        pop2=0;
-                        pop3=0;          
+                        if (empty3_naranja==0 )begin           //if logica pops naranjas      
+                            pop0=0;
+                            pop1=0;
+                            pop2=0;
+                            pop3=1;
+                        end 
+                        else begin 
+                            pop0=0;
+                            pop1=0;
+                            pop2=0;
+                            pop3=0;          
+                        end
                     end
                 end
             end
         end
-    // end
-
-    //logica de fifos morados
-    // if(almost_full0 | almost_full1 | almost_full2 | almost_full3)begin          
-    //     // push=0;
-    //     // push1=0;
-    //     // push2=0;
-    //     // push3=0;
-    // end
-    // else begin 
-        // push=1;
-        // push1=1;
-        // push2=1;
-        // push3=1;
-    end
     end
 end
 
